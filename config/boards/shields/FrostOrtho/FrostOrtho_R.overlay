@@ -22,14 +22,14 @@
 &zip_temp_layer {
     // キー入力後400ms以内はAMLに切り替わらない
     require-prior-idle-ms = <400>;
-    // AMLから離脱しないキー
+    // AMLから離脱しないキー（MB配置を左下へ移動したため更新）
     excluded-positions = <
-        6 // U 左クリック
-        7 // I 右クリック
-        8 // O 中央クリック
-        20 // Z Shift
-        30 // Control
-        32 // Alt
+        20
+        30
+        31
+        32
+        33
+        34
     >;
 };
 
@@ -73,10 +73,14 @@
     scroller {
         layers = <5 7>;
         input-processors = <
-            &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT) // スクロール方向調整
+            &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)
             &zip_xy_to_scroll_mapper
-            &zip_scroll_x_scaler 2 9
-            &zip_scroll_y_scaler 2 9
+            &zip_scroll_x_scaler 2 45
+            &zip_scroll_y_scaler 2 45
+            // To enable zoom-on-scroll when layer 7 is active, you can add a runtime input processor
+            // that maps scroll up/down to the `zoom_in` / `zoom_out` macros defined in keymap.
+            // Example (enable after verification):
+            // &scroll_runtime_input_processor /* maps REL_WHEEL to macro triggers */
         >;
     };
 };
