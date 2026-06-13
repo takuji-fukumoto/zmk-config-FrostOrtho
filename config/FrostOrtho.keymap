@@ -146,7 +146,7 @@
 &trans  &trans  &trans  &trans  &trans              &trans  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans              &trans  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans              &trans  &trans    &trans    &trans    &trans
-&trans  &mkp MB3  &mkp MB1  &mkp MB2  &mo 5      &trans  &trans    &trans    &trans    &trans
+&trans  &trans  &mkp MB3  &mkp MB1  &mkp MB2      &mo 5   &trans    &trans    &trans    &trans
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;

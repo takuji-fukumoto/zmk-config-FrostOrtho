@@ -22,14 +22,12 @@
 &zip_temp_layer {
     // キー入力後400ms以内はAMLに切り替わらない
     require-prior-idle-ms = <400>;
-    // AMLから離脱しないキー（MB配置を左下へ移動したため更新）
+    // AMLから離脱しないキー（マウスボタン配置を右に1ずらしたため更新）
     excluded-positions = <
-        20
-        30
-        31
-        32
-        33
-        34
+        17
+        18
+        19
+        35
     >;
 };
 
@@ -75,8 +73,8 @@
         input-processors = <
             &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)
             &zip_xy_to_scroll_mapper
-            &zip_scroll_x_scaler 2 45
-            &zip_scroll_y_scaler 2 45
+            &zip_scroll_x_scaler 1 45
+            &zip_scroll_y_scaler 1 45
         >;
     };
 };
