@@ -78,7 +78,7 @@
 
 &trackball_listener {
     /* レイヤー5: 通常スクロール */
-    scroller5: scroller {
+    scroller5: scroller_5 {
         compatible = "zmk,scroller";
         layers = <5>;
         input-processors = <
@@ -90,7 +90,7 @@
     };
 
     /* レイヤー7: スクロールをズームマクロにマッピング */
-    scroller7: scroller {
+    scroller7: scroller_7 {
         compatible = "zmk,scroller";
         layers = <7>;
         input-processors = <
