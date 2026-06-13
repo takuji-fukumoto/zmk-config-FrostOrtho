@@ -77,17 +77,26 @@
 };
 
 &trackball_listener {
-    scroller {
-        layers = <5 7>;
+    /* レイヤー5: 通常スクロール */
+    scroller5: scroller {
+        compatible = "zmk,scroller";
+        layers = <5>;
         input-processors = <
             &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)
             &zip_xy_to_scroll_mapper
             &zip_scroll_x_scaler 2 45
             &zip_scroll_y_scaler 2 45
-            // To enable zoom-on-scroll when layer 7 is active, you can add a runtime input processor
-            // that maps scroll up/down to the `zoom_in` / `zoom_out` macros defined in keymap.
-            // Example (enable after verification):
-            // &scroll_runtime_input_processor /* maps REL_WHEEL to macro triggers */
+        >;
+    };
+
+    /* レイヤー7: スクロールをズームマクロにマッピング */
+    scroller7: scroller {
+        compatible = "zmk,scroller";
+        layers = <7>;
+        input-processors = <
+            &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)
+            &zip_xy_to_scroll_mapper
+            &scroll_to_macro
         >;
     };
 };
