@@ -49,6 +49,13 @@
             codes = <INPUT_REL_WHEEL>;
             track-remainders;
         };
+        scroll_to_macro: scroll_to_macro {
+            compatible = "zmk,input-processor-scroll-to-macro";
+            #input-processor-cells = <0>;
+            up-binding = <&zoom_in>;
+            down-binding = <&zoom_out>;
+            activate-layer = <7>;
+        };
     };
 };
 
