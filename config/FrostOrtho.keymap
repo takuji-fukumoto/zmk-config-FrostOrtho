@@ -18,7 +18,6 @@
 
 / {
     combos { compatible = "zmk,combos"; };
-
     macros {
         to_layer_0: to_layer_0 {
             compatible = "zmk,behavior-macro-one-param";
@@ -38,24 +37,6 @@
                 <&kp LEFT_WIN &kp LEFT_SHIFT &kp S>;
 
             label = "SCREENSHOT";
-        };
-        zoom_in: zoom_in {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_GUI &kp LEFT_CONTROL &kp EQUAL>,
-                <&macro_release>;
-            label = "ZOOM_IN";
-        };
-        zoom_out: zoom_out {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_GUI &kp LEFT_CONTROL &kp MINUS>,
-                <&macro_release>;
-            label = "ZOOM_OUT";
         };
     };
 

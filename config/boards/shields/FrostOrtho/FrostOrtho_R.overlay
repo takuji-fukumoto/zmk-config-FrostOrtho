@@ -49,13 +49,6 @@
             codes = <INPUT_REL_WHEEL>;
             track-remainders;
         };
-        scroll_to_macro: scroll_to_macro {
-            compatible = "zmk,input-processor-scroll-to-macro";
-            #input-processor-cells = <0>;
-            up-binding = <&zoom_in>;
-            down-binding = <&zoom_out>;
-            activate-layer = <7>;
-        };
     };
 };
 
@@ -77,26 +70,13 @@
 };
 
 &trackball_listener {
-    /* レイヤー5: 通常スクロール */
-    scroller5: scroller_5 {
-        compatible = "zmk,scroller";
-        layers = <5>;
+    scroller {
+        layers = <5 7>;
         input-processors = <
             &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)
             &zip_xy_to_scroll_mapper
             &zip_scroll_x_scaler 2 45
             &zip_scroll_y_scaler 2 45
-        >;
-    };
-
-    /* レイヤー7: スクロールをズームマクロにマッピング */
-    scroller7: scroller_7 {
-        compatible = "zmk,scroller";
-        layers = <7>;
-        input-processors = <
-            &zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)
-            &zip_xy_to_scroll_mapper
-            &scroll_to_macro
         >;
     };
 };
