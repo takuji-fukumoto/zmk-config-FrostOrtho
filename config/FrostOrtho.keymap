@@ -17,7 +17,16 @@
 &mkp_input_listener { input-processors = <&zip_temp_layer 6 10000>; };
 
 / {
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        combo_scroll: combo_scroll {
+            // 左クリック (MB1) と 右クリック (MB2) の同時押しでスクロールレイヤへ移行
+            key-positions = <33 34>;
+            bindings = <&mo 5>;
+            timeout-ms = <50>;
+        };
+    };
     macros {
         to_layer_0: to_layer_0 {
             compatible = "zmk,behavior-macro-one-param";
@@ -146,7 +155,7 @@
 &trans     &trans     &trans     &trans     &trans                    &trans  &trans  &trans  &trans  &trans
 &trans     &trans     &trans     &trans     &trans                    &trans  &trans  &trans  &trans  &trans
 &trans     &trans     &trans     &trans     &mkp MB3                  &trans  &trans  &trans  &trans  &trans
-&trans     &trans     &mkp MB3   &mkp MB1   &mkp MB2     &trans       &trans  &trans  &trans  &trans  &trans
+&trans     &trans     &trans     &mkp MB1   &mkp MB2     &trans       &trans  &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&rsr_vol &rsr_trans>;
